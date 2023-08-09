@@ -33,10 +33,10 @@
 		profileModal = !profileModal
 	}
 
-	async function handleDelete(id: string) {
+	async function handleDelete(id: number) {
 		const form = new FormData()
 
-		form.append('id', id)
+		form.append('id', String(id))
 
 		await fetch(`?/remove`, {
 			method: 'POST',
@@ -46,6 +46,10 @@
 		invalidateAll()
 	}
 </script>
+
+<svelte:head>
+	<title>DevFinance | Registre suas transações</title>
+</svelte:head>
 
 <header class="bg-green-700">
 	<div class="py-6 w-[90%] max-w-screen-md mx-auto flex flex-col">

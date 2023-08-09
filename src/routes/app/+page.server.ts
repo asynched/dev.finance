@@ -36,14 +36,13 @@ const createTransactionSchema = object({
 })
 
 export const actions: Actions = {
-	logoff: async ({ request, cookies, locals }) => {
+	logoff: async ({ cookies, locals }) => {
 		if (!locals.user) {
 			return fail(400, {
 				message: 'You must be logged in to logoff',
 			})
 		}
 
-		const user = locals.user
 		const token = cookies.get('session')
 
 		if (!token) {
@@ -76,7 +75,7 @@ export const actions: Actions = {
 			})
 		}
 
-		const id = String(form.get('id'))
+		const id = Number(form.get('id'))
 
 		const hasTransaction = await db.expense.findFirst({
 			where: {

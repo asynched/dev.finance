@@ -2,6 +2,10 @@
 	import Input from '@/components/common/Input.svelte'
 </script>
 
+<svelte:head>
+	<title>DevFinance | Cadastre-se</title>
+</svelte:head>
+
 <div
 	class="w-full h-screen bg-gradient-to-br from-green-600 to-green-700 grid place-items-center"
 >
@@ -29,6 +33,7 @@
 				placeholder="Sua senha"
 			/>
 			<button
+				type="submit"
 				class="py-2 px-4 bg-green-600 text-white rounded transition-base hover:bg-green-500"
 			>
 				Cadastrar
